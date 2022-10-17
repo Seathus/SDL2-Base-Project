@@ -1,18 +1,38 @@
 #include "SDL.h"
+#include "GameClient.h"
+
+GameClient* client = nullptr;
 
 int main(int argc, char* argv[])
 {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_Window *window = SDL_CreateWindow("title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	const int FPS = 60;
+	const int frameDelay = 1000 / FPS; //max time between frames
 
-	SDL_RenderClear(renderer);
+	Uint32 frameStart;
+	int frameTime;
 
-	SDL_RenderPresent(renderer);
+	client = new GameClient();
 
-	SDL_Delay(3000);
+	client->Init("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
+
+	while (client->IsRunning())
+	{
+		frameStart = SDL_GetTicks();
+
+		client->HandleEvents();
+		client->Update();
+		client->Render();
+
+		frameTime = SDL_GetTicks() - frameStart;
+
+		if (frameDelay > frameTime)
+		{
+			SDL_Delay(frameDelay - frameTime);
+		}
+	}
+
+	client->Clean();
 
 	return 0;
 }
