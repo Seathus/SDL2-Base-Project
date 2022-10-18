@@ -1,6 +1,7 @@
 #pragma once
 #include "Components.h"
 #include "SDL.h"
+#include "TextureManager.h"
 
 
 class SpriteComponent : public Component
@@ -38,24 +39,20 @@ public:
 		m_sourceRect.w = m_transform->Width * m_transform->Scale;
 		m_sourceRect.h = m_transform->Height * m_transform->Scale;
 
+		m_destinationRect.x = 0;
+		m_destinationRect.y = 0;
 		m_destinationRect.w = m_transform->Width * m_transform->Scale;
-		m_destinationRect.h = m_transform->Width * m_transform->Scale;
+		m_destinationRect.h = m_transform->Height * m_transform->Scale;
 	}
 
 	void Update() override
 	{
-		m_destinationRect.x = (int)m_transform->Position.x;
-		m_destinationRect.y = (int)m_transform->Position.y;
-		m_sourceRect.x = 0;
-		m_sourceRect.y = 0;
-		m_sourceRect.w = m_transform->Width * m_transform->Scale;
-		m_sourceRect.h = m_transform->Height * m_transform->Scale;
-		
+		m_destinationRect.x = static_cast<int>(m_transform->Position.x);
+		m_destinationRect.y = static_cast<int>(m_transform->Position.y);		
 	}
 
 	void Draw() override
 	{
-		std::cout << "Height: " << m_sourceRect.h << std::endl;
 		TextureManager::Draw(m_texture, m_sourceRect, m_destinationRect);
 	}
 };

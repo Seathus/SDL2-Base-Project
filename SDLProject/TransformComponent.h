@@ -16,8 +16,13 @@ public:
 
 	TransformComponent()
 	{
-		Position.x = 0.0f;
-		Position.y = 0.0f;
+		Position.Zero();
+	}
+
+	TransformComponent(int scale)
+	{
+		Position.Zero();
+		Scale = scale;
 	}
 
 	TransformComponent(float x, float y)
@@ -26,19 +31,18 @@ public:
 		Position.y = y;
 	}
 
-	TransformComponent(float x, float y, int h, int w, int scale)
+	TransformComponent(float x, float y, int width, int height, int scale)
 	{
 		Position.x = x;
 		Position.y = y;
-		Width = w;
-		Height = h;
+		Width = width;
+		Height = height;		
 		Scale = scale;
 	}
 
 	void Init() override
 	{
-		Velocity.x = 0;
-		Velocity.y = 0;
+		Velocity.Zero();
 	}
 
 	void Update() override
