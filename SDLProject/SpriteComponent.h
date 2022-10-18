@@ -12,11 +12,23 @@ private:
 	SDL_Rect m_sourceRect;
 	SDL_Rect m_destinationRect;
 
+	bool m_animated = false;
+	int m_frames = 0;
+	int m_speed = 100; //delay between frames in milliseconds
+
 public:
 
 	SpriteComponent() = default;
 	SpriteComponent(const char* filePath)
 	{
+		SetTexture(filePath);
+	}
+
+	SpriteComponent(const char* filePath, int nFrames, int speed)
+	{
+		m_animated = true;
+		m_frames = nFrames;
+		m_speed = speed;
 		SetTexture(filePath);
 	}
 
@@ -47,6 +59,11 @@ public:
 
 	void Update() override
 	{
+		if (m_animated)
+		{
+			m_sourceRect.x = m_sourceRect.w * static_cast<int>((SDL_GetTicks() / m_speed) % m_frames);
+		}
+
 		m_destinationRect.x = static_cast<int>(m_transform->Position.x);
 		m_destinationRect.y = static_cast<int>(m_transform->Position.y);		
 	}

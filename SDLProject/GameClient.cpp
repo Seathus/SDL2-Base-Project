@@ -74,7 +74,7 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	Map::LoadMap("Assets/Map16x16.map", 16, 16);
 
 	player.AddComponent<TransformComponent>();
-	player.AddComponent<SpriteComponent>("Assets/player.png");
+	player.AddComponent<SpriteComponent>("Assets/player_idle.png", 4, 150);
 	player.AddComponent<KeyboardController>();
 	player.AddComponent<ColliderComponent>("player");
 	player.AddGroup(Group_Player);
