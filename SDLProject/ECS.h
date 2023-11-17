@@ -88,7 +88,11 @@ public:
 		return m_groupBitSet[group];
 	}
 
-	void AddGroup(Group group);
+	void AddGroup(Group group)
+	{
+		m_groupBitSet[group] = true;
+	}
+	
 	void RemoveFromGroup(Group group)
 	{
 		m_groupBitSet[group] = false;
