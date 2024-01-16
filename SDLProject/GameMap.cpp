@@ -1,18 +1,18 @@
-#include "Map.h"
+#include "GameMap.h"
 #include "GameClient.h"
 #include <fstream>
 
-Map::Map()
+GameMap::GameMap()
 {
 	
 }
 
-Map::~Map()
+GameMap::~GameMap()
 {
 	
 }
 
-void Map::LoadMap(std::string path, int sizeX, int sizeY)
+void GameMap::LoadMap(std::string path, int sizeX, int sizeY)
 {
 	char tile;
 	std::fstream mapFile;

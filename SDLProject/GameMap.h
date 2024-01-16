@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
 
-class Map
+class GameMap
 {
 public:
 
-	Map();
-	~Map();
+	GameMap();
+	~GameMap();
 
 	static void LoadMap(std::string path, int sizeX, int sizeY);
 

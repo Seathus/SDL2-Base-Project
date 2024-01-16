@@ -1,11 +1,11 @@
 #include "GameClient.h"
 #include "TextureManager.h"
-#include "Map.h"
+#include "GameMap.h"
 #include "Components.h"
 #include "Vector2D.h"
 #include "Collision.h"
 
-Map* map;
+GameMap* Map;
 
 SDL_Renderer* GameClient::Renderer = nullptr;
 SDL_Event GameClient::Event;
@@ -69,12 +69,12 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	}
 	
 	
-	map = new Map();
+	Map = new GameMap();
 
-	Map::LoadMap("Assets/Map16x16.map", 16, 16);
+	GameMap::LoadMap("Assets/Map16x16.map", 16, 16);
 
 	player.AddComponent<TransformComponent>();
-	player.AddComponent<SpriteComponent>("Assets/player_idle.png", 4, 150);
+	player.AddComponent<SpriteComponent>("Assets/player_anims.png", true);
 	player.AddComponent<KeyboardController>();
 	player.AddComponent<ColliderComponent>("player");
 	player.AddGroup(Group_Player);
