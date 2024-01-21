@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\personalprojects\SDLProject\x64\Debug\SDLProject.exe</FullPath>
+      <FullPath>E:\personalprojects\SDL2-Base-Project\x64\Debug\SDLProject.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
