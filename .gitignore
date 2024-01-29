@@ -26,6 +26,11 @@
 *.a
 *.lib
 
+*.tlog
+*.filters
+*.pdb
+*.idb
+
 # Executables
 *.exe
 *.out
