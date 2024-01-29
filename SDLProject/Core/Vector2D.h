@@ -31,6 +31,7 @@ public:
 
 	Vector2D& operator*(const int& i);
 	Vector2D& Zero();
+	Vector2D& Normalized();
 	const float& Magnitude();
 	
 	static float Dot(const Vector2D& v1, const Vector2D& v2);

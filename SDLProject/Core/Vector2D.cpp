@@ -120,6 +120,15 @@ Vector2D& Vector2D::Zero()
 	return *this;
 }
 
+Vector2D& Vector2D::Normalized()
+{
+	auto mag = Magnitude();
+	this->x = this->x / mag;
+	this->y = this->y / mag;
+
+	return *this;
+}
+
 const float& Vector2D::Magnitude()
 {
 	return sqrt(this->x * this->x + this->y * this->y);
