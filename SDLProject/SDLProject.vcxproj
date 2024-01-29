@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Debug\DebugManager.cpp" />
+    <ClCompile Include="Core\Debug\IDebuggable.cpp" />
     <ClCompile Include="Core\ECS.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -694,6 +696,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Components.h" />
+    <ClInclude Include="Core\Debug\DebugManager.h" />
+    <ClInclude Include="Core\Debug\IDebuggable.h" />
     <ClInclude Include="Core\ECS.h" />
     <ClInclude Include="Core\GameClient.h" />
     <ClInclude Include="Core\GameObject.h" />
