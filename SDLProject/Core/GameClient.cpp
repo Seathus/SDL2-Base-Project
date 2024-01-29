@@ -4,6 +4,7 @@
 #include "Components.h"
 #include "Vector2D.h"
 #include "../Physics/Collision.h"
+#include "Debug/DebugManager.h"
 
 GameMap* Map;
 
@@ -16,6 +17,7 @@ Manager manager;
 auto& player(manager.AddEntity());
 auto& wall(manager.AddEntity());
 auto& ball(manager.AddEntity());
+Ray* ray;
 
 enum GroupLabels : std::size_t 
 {
@@ -86,7 +88,9 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 
 	ball.AddComponent<TransformComponent>(20,20);
 	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 50.0f);
-	ball.AddGroup(Group_Enemies);	
+	ball.AddGroup(Group_Enemies);
+
+	ray = new Ray(Vector2D(0,0), Vector2D(1,1));
 }
 
 void GameClient::HandleEvents()
@@ -110,8 +114,6 @@ void GameClient::Update()
 	{
 		Collision::AABB(player.GetComponent<ColliderComponent>(), *cc);
 	}
-
-	Ray ray(Vector2D(0,0), Vector2D(1,1));
 	
 	auto hit = Collision::Raycast(ray);	
 }
@@ -145,7 +147,7 @@ void GameClient::Render()
 		e->Draw();
 	}
 
-	Ray::DrawDebug();
+	DebugManager::Render();
 
 	SDL_SetRenderDrawColor(Renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawLine(Renderer, 5, 5, 100, 120);

@@ -3,8 +3,9 @@
 
 #include "../Core/Vector2D.h"
 #include "../Core/GameClient.h"
+#include "../Core/Debug/DebugManager.h"
 
-struct Ray
+class Ray : public IDebuggable
 {
 public:
 
@@ -13,12 +14,20 @@ public:
     
     Ray(const Vector2D& position, const Vector2D& direction)
     {
-        this->m_position = position;
-        this->m_direction = direction;
+        m_position = position;
+        m_direction = direction;
+
+        DebugManager::Register(this);
     }
 
     static void DrawDebug()
     {
-        SDL_RenderDrawLine(GameClient::Renderer, 50,50,100,10);
+                
+    }
+
+    void RenderDebug() const override
+    {
+        SDL_SetRenderDrawColor(GameClient::Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderDrawLine(GameClient::Renderer, m_position.x,m_position.y,m_direction.x,m_direction.y);
     }
 };

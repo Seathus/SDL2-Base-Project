@@ -19,5 +19,5 @@ private:
 public:
 	static bool AABB(ColliderComponent& colliderA, ColliderComponent& colliderB);
 	static bool IsRaycast(const Ray& ray);
-	static HitInfo Raycast(Ray& ray);
+	static HitInfo Raycast(Ray* ray);
 };

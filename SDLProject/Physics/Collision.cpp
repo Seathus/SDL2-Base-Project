@@ -67,7 +67,7 @@ bool Collision::IsRaycast(const Ray& ray)
 	return false;
 }
 
-HitInfo Collision::Raycast(Ray& ray)
+HitInfo Collision::Raycast(Ray* ray)
 {
 	HitInfo detectedHit;
 
@@ -77,7 +77,7 @@ HitInfo Collision::Raycast(Ray& ray)
 
 		if (sphereCollider != nullptr)
 		{
-			detectedHit = RayToSphere(ray, sphereCollider);
+			detectedHit = RayToSphere(*ray, sphereCollider);
 		}
 		else
 		{
@@ -85,7 +85,7 @@ HitInfo Collision::Raycast(Ray& ray)
 
 			if (boxCollider != nullptr)
 			{
-				detectedHit = RayToBox(ray, boxCollider);
+				detectedHit = RayToBox(*ray, boxCollider);
 			}
 		}
 	}
