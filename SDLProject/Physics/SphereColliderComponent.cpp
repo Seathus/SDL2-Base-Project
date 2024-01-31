@@ -13,9 +13,9 @@ void SphereColliderComponent::Update()
     
 }
 
-void SphereColliderComponent::DrawDebug()
+void SphereColliderComponent::RenderDebug() const
 {
-    ColliderComponent::DrawDebug();
+    SDL_SetRenderDrawColor(GameClient::Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
     
     int32_t x = (this->m_sphere->Radius - 1);
     int32_t y = 0;

@@ -44,7 +44,6 @@ public:
 	virtual void Init(){}
 	virtual void Update(){}
 	virtual void Draw(){}
-	virtual void DrawDebug(){}
 
 	virtual ~Component(){}
 };
@@ -78,14 +77,6 @@ public:
 		for (auto& component : m_components)
 		{
 			component->Draw();
-		}
-	}
-
-	void DrawDebug()
-	{
-		for (auto& component : m_components)
-		{
-			component->DrawDebug();
 		}
 	}
 

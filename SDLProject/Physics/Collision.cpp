@@ -5,13 +5,13 @@
 #include "ColliderComponent.h"
 
 
-HitInfo Collision::RayToSphere(Ray& ray, const SphereColliderComponent* sphereCollider)
+HitInfo Collision::RayToSphere(Ray* ray, const SphereColliderComponent* sphereCollider)
 {
 	auto hitInfo = HitInfo();
 
-	const Vector2D vectorBetweenRayOriginAndSphere = sphereCollider->transform->Position - ray.m_position;
-	const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, ray.m_direction);
-	const Vector2D tPosition = ray.m_position + ray.m_direction * t;
+	const Vector2D vectorBetweenRayOriginAndSphere = sphereCollider->transform->Position - *ray->m_position;
+	const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, *ray->m_direction);
+	const Vector2D tPosition = *ray->m_position + *ray->m_direction * t;
 
 	const float rSquared = sphereCollider->GetRadius() * sphereCollider->GetRadius();
 	const float y = (sphereCollider->transform->Position - tPosition).Magnitude();
@@ -22,8 +22,8 @@ HitInfo Collision::RayToSphere(Ray& ray, const SphereColliderComponent* sphereCo
 
 	if (t > t1 && t < t2)
 	{
-		Vector2D resultEnterIntersectLocation = ray.m_position + (ray.m_direction * t1);
-		Vector2D resultExitIntersectLocation = ray.m_position + (ray.m_direction * t2);
+		Vector2D resultEnterIntersectLocation = *ray->m_position + (*ray->m_direction * t1);
+		Vector2D resultExitIntersectLocation = *ray->m_position + (*ray->m_direction * t2);
 		
 		hitInfo.Point = Vector2D(resultEnterIntersectLocation);
 	}
@@ -71,13 +71,15 @@ HitInfo Collision::Raycast(Ray* ray)
 {
 	HitInfo detectedHit;
 
+	detectedHit = RayToSphere(ray, nullptr);
+
 	for	(const auto& collider : GameClient::Colliders)
 	{
 		const auto sphereCollider = dynamic_cast<SphereColliderComponent*>(collider);
 
 		if (sphereCollider != nullptr)
 		{
-			detectedHit = RayToSphere(*ray, sphereCollider);
+			
 		}
 		else
 		{
@@ -91,4 +93,30 @@ HitInfo Collision::Raycast(Ray* ray)
 	}
 
 	return detectedHit;
+}
+
+HitInfo Collision::RaycastTest(Ray* ray, const SphereColliderComponent* sphereCollider)
+{
+	auto hitInfo = HitInfo();
+
+	const Vector2D vectorBetweenRayOriginAndSphere = sphereCollider->transform->Position - *ray->m_position;
+	const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, *ray->m_direction);
+	const Vector2D tPosition = *ray->m_position + *ray->m_direction * t;
+
+	const float rSquared = sphereCollider->GetRadius() * sphereCollider->GetRadius();
+	const float y = (sphereCollider->transform->Position - tPosition).Magnitude();
+	const float ySquared = y * y;
+	float x = sqrt(rSquared - ySquared);
+	float t1 = t - x;
+	float t2 = t + x;
+
+	if (t > t1 && t < t2)
+	{
+		Vector2D resultEnterIntersectLocation = *ray->m_position + (*ray->m_direction * t1);
+		Vector2D resultExitIntersectLocation = *ray->m_position + (*ray->m_direction * t2);
+		
+		hitInfo.Point = Vector2D(resultEnterIntersectLocation);
+	}
+
+	return hitInfo;
 }

@@ -86,11 +86,12 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	wall.AddComponent<ColliderComponent>("wall");
 	wall.AddGroup(Group_Map);
 
-	ball.AddComponent<TransformComponent>(20,20);
+	ball.AddComponent<TransformComponent>(120.0f,120.0f);
 	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 50.0f);
 	ball.AddGroup(Group_Enemies);
 
-	ray = new Ray(Vector2D(0,0), Vector2D(1,1));
+	ray = new Ray(new Vector2D(0,0), new Vector2D(1,1));
+	
 }
 
 void GameClient::HandleEvents()
@@ -115,7 +116,29 @@ void GameClient::Update()
 		Collision::AABB(player.GetComponent<ColliderComponent>(), *cc);
 	}
 	
-	auto hit = Collision::Raycast(ray);	
+	//auto hit = Collision::Raycast(ray);
+	HitInfo detectedHit;
+
+	for	(const auto& collider : GameClient::Colliders)
+	{
+		const auto sphereCollider = dynamic_cast<SphereColliderComponent*>(collider);
+
+		if (sphereCollider != nullptr)
+		{
+			detectedHit = Collision::RaycastTest(ray, sphereCollider);
+		}
+		else
+		{
+			const auto boxCollider = dynamic_cast<BoxColliderComponent*>(collider);
+
+			if (boxCollider != nullptr)
+			{
+				//detectedHit = RayToBox(*ray, boxCollider);
+			}
+		}
+	}
+	
+	
 }
 
 auto& tiles(manager.GetGroup(Group_Map));
