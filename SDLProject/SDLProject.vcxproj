@@ -773,22 +773,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SDL2_image\include;$(SolutionDir)SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)SDL2_image\lib\x64;$(SolutionDir)SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SDL2_image\include;$(SolutionDir)SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)SDL2_image\lib\x64;$(SolutionDir)SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SDL2_image\include;$(SolutionDir)SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)SDL2_image\lib\x64;$(SolutionDir)SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SDL2_image\include;$(SolutionDir)SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)SDL2_image\lib\x64;$(SolutionDir)SDL2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
