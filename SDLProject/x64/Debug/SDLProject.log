@@ -1,2 +1,48 @@
-﻿  GameClient.cpp
+﻿  DebugManager.cpp
+  IDebuggable.cpp
+  Box.cpp
+  BoxColliderComponent.cpp
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(30,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(29,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(28,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(27,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  HitInfo.cpp
+  ICollider.cpp
+  Sphere.cpp
+  SphereColliderComponent.cpp
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(30,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(29,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(28,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(27,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\SphereColliderComponent.cpp(47,15): warning C4244: 'initializing': conversion from 'float' to 'int32_t', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\SphereColliderComponent.cpp(51,19): warning C4244: 'initializing': conversion from 'float' to 'int32_t', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\SphereColliderComponent.cpp(76,26): warning C4244: '+=': conversion from 'float' to 'int32_t', possible loss of data
+  Generating Code...
+  ECS.cpp
+  GameClient.cpp
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(30,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(29,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(28,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(27,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  GameObject.cpp
+  Main.cpp
+  Vector2D.cpp
+  GameMap.cpp
+  TextureManager.cpp
+  Collision.cpp
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(30,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(29,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(28,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(27,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  Ray.cpp
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(30,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(29,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(28,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+E:\personalprojects\SDL2-Base-Project\SDLProject\Physics\Ray.h(27,23): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+  Generating Code...
+E:\personalprojects\SDL2-Base-Project\SDLProject\Core\Vector2D.cpp(90): warning C4172: returning address of local variable or temporary
+E:\personalprojects\SDL2-Base-Project\SDLProject\Core\Vector2D.cpp(95): warning C4172: returning address of local variable or temporary
+E:\personalprojects\SDL2-Base-Project\SDLProject\Core\Vector2D.cpp(100): warning C4172: returning address of local variable or temporary
+E:\personalprojects\SDL2-Base-Project\SDLProject\Core\Vector2D.cpp(105): warning C4172: returning address of local variable or temporary
+E:\personalprojects\SDL2-Base-Project\SDLProject\Core\Vector2D.cpp(134): warning C4172: returning address of local variable or temporary
   SDLProject.vcxproj -> E:\personalprojects\SDL2-Base-Project\x64\Debug\SDLProject.exe

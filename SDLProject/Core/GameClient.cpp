@@ -17,7 +17,6 @@ Manager manager;
 auto& player(manager.AddEntity());
 auto& wall(manager.AddEntity());
 auto& ball(manager.AddEntity());
-Ray* ray;
 
 enum GroupLabels : std::size_t 
 {
@@ -90,7 +89,7 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 50.0f);
 	ball.AddGroup(Group_Enemies);
 
-	ray = new Ray(new Vector2D(0,0), new Vector2D(1,1));
+	
 	
 }
 
@@ -111,34 +110,7 @@ void GameClient::Update()
 	manager.Refresh();
 	manager.Update();
 
-	for (auto cc : Colliders)
-	{
-		Collision::AABB(player.GetComponent<ColliderComponent>(), *cc);
-	}
-	
-	//auto hit = Collision::Raycast(ray);
-	HitInfo detectedHit;
-
-	for	(const auto& collider : GameClient::Colliders)
-	{
-		const auto sphereCollider = dynamic_cast<SphereColliderComponent*>(collider);
-
-		if (sphereCollider != nullptr)
-		{
-			detectedHit = Collision::RaycastTest(ray, sphereCollider);
-		}
-		else
-		{
-			const auto boxCollider = dynamic_cast<BoxColliderComponent*>(collider);
-
-			if (boxCollider != nullptr)
-			{
-				//detectedHit = RayToBox(*ray, boxCollider);
-			}
-		}
-	}
-	
-	
+	Collision::Raycast(Vector2D(0,0), Vector2D(1,1));	
 }
 
 auto& tiles(manager.GetGroup(Group_Map));
@@ -158,11 +130,6 @@ void GameClient::Render()
 	for (auto& p : players)
 	{
 		p->Draw();
-	}
-
-	for (auto& e : enemies)
-	{
-		e->Draw();
 	}
 
 	for (auto& e : enemies)

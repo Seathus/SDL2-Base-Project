@@ -2,7 +2,9 @@
 
 #include <string>
 
+#include "HitInfo.h"
 #include "ICollider.h"
+#include "Ray.h"
 #include "SDL.h"
 #include "../Core/Components.h"
 
@@ -32,4 +34,6 @@ public:
 
 		GameClient::Colliders.push_back(this);
 	}
+
+	virtual HitInfo CheckCollision(const Ray& ray) { HitInfo info; return info; };
 };

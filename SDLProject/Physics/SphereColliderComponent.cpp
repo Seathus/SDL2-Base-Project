@@ -13,6 +13,33 @@ void SphereColliderComponent::Update()
     
 }
 
+HitInfo SphereColliderComponent::CheckCollision(const Ray& ray)
+{
+    HitInfo hitInfo;
+
+    /*const Vector2D vectorBetweenRayOriginAndSphere = transform->Position - ray.m_position;
+    const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, ray.m_direction);
+    const Vector2D tPosition = ray.m_position + ray.m_direction * t;
+
+    const float rSquared = GetRadius() * GetRadius();
+    const float y = (transform->Position - tPosition).Magnitude();
+    const float ySquared = y * y;
+    float x = sqrt(rSquared - ySquared);
+    float t1 = t - x;
+    float t2 = t + x;
+
+    if (t > t1 && t < t2)
+    {
+        Vector2D resultEnterIntersectLocation = ray.m_position + (ray.m_direction * t1);
+        Vector2D resultExitIntersectLocation = ray.m_position + (ray.m_direction * t2);
+		
+        hitInfo.Point = Vector2D(resultEnterIntersectLocation);
+    }*/
+
+    return hitInfo;
+    
+}
+
 void SphereColliderComponent::RenderDebug() const
 {
     SDL_SetRenderDrawColor(GameClient::Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);

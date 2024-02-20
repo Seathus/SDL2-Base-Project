@@ -19,5 +19,6 @@ public:
     void Init() override;
     void Update() override;
     float GetRadius() const { return m_sphere->Radius;}
+    HitInfo CheckCollision(const Ray& ray) override ;
     void RenderDebug() const override;
 };
