@@ -85,24 +85,24 @@ Vector2D operator/(const Vector2D& v1, const Vector2D& v2)
 	return Vector2D(v1).Divide(v2);
 }
 
-const Vector2D& Vector2D::operator+=(const Vector2D& vector2D)
+Vector2D Vector2D::operator+=(const Vector2D& vector2D)
 {
-	return this->Add(vector2D);
+	return Vector2D(this->Add(vector2D));
 }
 
-const Vector2D& Vector2D::operator-=(const Vector2D& vector2D)
+Vector2D Vector2D::operator-=(const Vector2D& vector2D)
 {
-	return this->Subtract(vector2D);
+	return Vector2D(this->Subtract(vector2D));
 }
 
-const Vector2D& Vector2D::operator*=(const Vector2D& vector2D)
+Vector2D Vector2D::operator*=(const Vector2D& vector2D)
 {
-	return this->Multiply(vector2D);
+	return Vector2D(this->Multiply(vector2D));
 }
 
-const Vector2D& Vector2D::operator/=(const Vector2D& vector2D)
+Vector2D Vector2D::operator/=(const Vector2D& vector2D)
 {
-	return this->Divide(vector2D);
+	return Vector2D(this->Divide(vector2D));
 }
 
 Vector2D& Vector2D::operator*(const int& i)
@@ -112,6 +112,13 @@ Vector2D& Vector2D::operator*(const int& i)
 
 	return *this;
 }
+
+Vector2D Vector2D::operator*(float x) const
+{
+	return {this->x * x, this->y * x};
+}
+
+
 Vector2D& Vector2D::Zero()
 {
 	this->x = 0;

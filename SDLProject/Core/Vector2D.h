@@ -24,16 +24,17 @@ public:
 	friend Vector2D operator*(const Vector2D& v1, const Vector2D& v2);
 	friend Vector2D operator/(const Vector2D& v1, const Vector2D& v2);
 
-	const Vector2D& operator+=(const Vector2D& vector2D);
-	const Vector2D& operator-=(const Vector2D& vector2D);
-	const Vector2D& operator*=(const Vector2D& vector2D);
-	const Vector2D& operator/=(const Vector2D& vector2D);	
+	Vector2D operator+=(const Vector2D& vector2D);
+	Vector2D operator-=(const Vector2D& vector2D);
+	Vector2D operator*=(const Vector2D& vector2D);
+	Vector2D operator/=(const Vector2D& vector2D);	
 
 	Vector2D& operator*(const int& i);
 	Vector2D& Zero();
 	Vector2D& Normalized();
 	const float& Magnitude();
-	
+	Vector2D operator*(float x) const;
+
 	static float Dot(const Vector2D& v1, const Vector2D& v2);
 
 	friend std::ostream& operator<<(std::ostream& stream, const Vector2D& vector2D);
