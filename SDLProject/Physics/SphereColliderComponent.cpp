@@ -13,10 +13,8 @@ void SphereColliderComponent::Update()
     
 }
 
-HitInfo SphereColliderComponent::CheckCollision(const Ray& ray)
+bool SphereColliderComponent::CheckCollision(const Ray& ray, HitInfo& outHitInfo)
 {
-    HitInfo hitInfo;
-
     const Vector2D vectorBetweenRayOriginAndSphere = transform->Position - ray.m_position;    
     const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, ray.m_direction);
     const Vector2D tPosition = ray.m_position + (ray.m_direction * t);
@@ -33,10 +31,11 @@ HitInfo SphereColliderComponent::CheckCollision(const Ray& ray)
         Vector2D resultEnterIntersectLocation = ray.m_position + (ray.m_direction * t1);
         Vector2D resultExitIntersectLocation = ray.m_position + (ray.m_direction * t2);
 		
-        hitInfo.Point = Vector2D(resultEnterIntersectLocation);
+        outHitInfo.Point = Vector2D(resultEnterIntersectLocation);
+        return true;
     }
 
-    return hitInfo;
+    return false;
     
 }
 

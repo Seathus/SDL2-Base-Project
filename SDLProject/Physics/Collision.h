@@ -11,5 +11,5 @@ class ColliderComponent;
 class Collision
 {
 public:
-	static HitInfo Raycast(const Vector2D& position, const Vector2D& direction);
+	static bool Raycast(const Vector2D& position, const Vector2D& direction, HitInfo& outHitInfo);
 };

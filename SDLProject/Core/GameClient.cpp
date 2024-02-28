@@ -74,16 +74,16 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 
 	GameMap::LoadMap("Assets/Map16x16.map", 16, 16);
 
-	player.AddComponent<TransformComponent>();
+	/*player.AddComponent<TransformComponent>();
 	player.AddComponent<SpriteComponent>("Assets/player_anims.png", true);
 	player.AddComponent<KeyboardController>();
-	player.AddComponent<ColliderComponent>("player");
+	player.AddComponent<BoxColliderComponent>("player");
 	player.AddGroup(Group_Player);
 
 	wall.AddComponent<TransformComponent>(300.0f, 300.0f, 20, 300, 1);
 	wall.AddComponent<SpriteComponent>("Assets/dirt.png");
-	wall.AddComponent<ColliderComponent>("wall");
-	wall.AddGroup(Group_Map);
+	wall.AddComponent<BoxColliderComponent>("wall");
+	wall.AddGroup(Group_Map);*/
 
 	ball.AddComponent<TransformComponent>(80.0f,80.0f);
 	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 35.0f);
@@ -110,7 +110,12 @@ void GameClient::Update()
 	manager.Refresh();
 	manager.Update();
 
-	Collision::Raycast(Vector2D(0,0), Vector2D(20,20));	
+	HitInfo hitInfo;
+	if (Collision::Raycast(Vector2D(0,0), Vector2D(20,20), hitInfo))
+	{
+		//change color of ray?
+		//render debug box?
+	}
 }
 
 auto& tiles(manager.GetGroup(Group_Map));

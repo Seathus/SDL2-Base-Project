@@ -8,7 +8,7 @@ void BoxColliderComponent::Update()
     this->m_box->h = transform->Height * transform->Scale;
 }
 
-HitInfo BoxColliderComponent::CheckCollision(const Ray& ray)
+bool BoxColliderComponent::CheckCollision(const Ray& ray, HitInfo& outHitInfo)
 {
     /*const auto boxColliderA = dynamic_cast<BoxColliderComponent*>(&colliderA);
     const auto boxColliderB = dynamic_cast<BoxColliderComponent*>(&colliderB);
@@ -29,6 +29,5 @@ HitInfo BoxColliderComponent::CheckCollision(const Ray& ray)
             return true;
         }
     }*/
-    HitInfo temp;
-    return temp;
+    return false;
 }

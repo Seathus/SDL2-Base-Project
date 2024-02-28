@@ -1,20 +1,18 @@
 #include "Collision.h"
 
-HitInfo Collision::Raycast(const Vector2D& position, const Vector2D& endPosition)
+bool Collision::Raycast(const Vector2D& position, const Vector2D& endPosition, HitInfo& outHitInfo)
 {
-	const auto ray = new Ray(position, endPosition);
+	const Ray ray(position, endPosition);
 	
 	HitInfo detectedHit;
 
 	for	(const auto& collider : GameClient::Colliders)
 	{
-		auto hit = collider->CheckCollision(*ray);
-
-		if (hit.Point.Magnitude() > 0.0f)
+		if(collider->CheckCollision(ray, outHitInfo))
 		{
-			detectedHit = hit;
+			return true;
 		}
 	}
 
-	return detectedHit;
+	return false;
 }

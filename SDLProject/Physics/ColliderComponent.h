@@ -35,5 +35,5 @@ public:
 		GameClient::Colliders.push_back(this);
 	}
 
-	virtual HitInfo CheckCollision(const Ray& ray) { HitInfo info; return info; };
+	virtual bool CheckCollision(const Ray& ray, HitInfo& outHitInfo) = 0;
 };

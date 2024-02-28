@@ -16,6 +16,6 @@ public:
     }
     
     void Update() override;
-    HitInfo CheckCollision(const Ray& ray) override;
+    bool CheckCollision(const Ray& ray, HitInfo& outHitInfo) override;
     ICollider GetCollider();
 };

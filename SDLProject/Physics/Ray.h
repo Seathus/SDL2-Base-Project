@@ -15,7 +15,7 @@ public:
     Ray(Vector2D position, Vector2D endPosition)
     {
         m_position = position;
-        m_direction = Vector2D(1, 0);//(endPosition - position).Normalized();
+        m_direction = (endPosition - position).Normalized();
 
         DebugManager::Register(this);
     }
