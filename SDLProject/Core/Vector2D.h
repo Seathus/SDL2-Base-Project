@@ -30,8 +30,8 @@ public:
 	Vector2D operator/=(const Vector2D& vector2D);	
 
 	Vector2D& operator*(const int& i);
-	Vector2D& Zero();
-	Vector2D& Normalized();
+	static Vector2D Zero();
+	Vector2D Normalized();
 	const float& Magnitude();
 	Vector2D operator*(float x) const;
 

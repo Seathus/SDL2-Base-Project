@@ -5,6 +5,5 @@
 struct HitInfo
 {
 public:
-
     Vector2D Point;
 };

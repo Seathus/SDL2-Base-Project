@@ -17,9 +17,9 @@ HitInfo SphereColliderComponent::CheckCollision(const Ray& ray)
 {
     HitInfo hitInfo;
 
-    const Vector2D vectorBetweenRayOriginAndSphere = transform->Position - ray.m_position;
+    const Vector2D vectorBetweenRayOriginAndSphere = transform->Position - ray.m_position;    
     const float t = Vector2D::Dot(vectorBetweenRayOriginAndSphere, ray.m_direction);
-    const Vector2D tPosition = ray.m_position + ray.m_direction * t;
+    const Vector2D tPosition = ray.m_position + (ray.m_direction * t);
 
     const float rSquared = GetRadius() * GetRadius();
     const float y = (transform->Position - tPosition).Magnitude();

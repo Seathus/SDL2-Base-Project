@@ -85,8 +85,8 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	wall.AddComponent<ColliderComponent>("wall");
 	wall.AddGroup(Group_Map);
 
-	ball.AddComponent<TransformComponent>(120.0f,120.0f);
-	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 50.0f);
+	ball.AddComponent<TransformComponent>(80.0f,80.0f);
+	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 35.0f);
 	ball.AddGroup(Group_Enemies);
 
 	
@@ -110,7 +110,7 @@ void GameClient::Update()
 	manager.Refresh();
 	manager.Update();
 
-	Collision::Raycast(Vector2D(0,0), Vector2D(1,1));	
+	Collision::Raycast(Vector2D(0,0), Vector2D(20,20));	
 }
 
 auto& tiles(manager.GetGroup(Group_Map));

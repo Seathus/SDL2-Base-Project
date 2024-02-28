@@ -12,10 +12,10 @@ public:
     Vector2D m_position;
     Vector2D m_direction;
     
-    Ray(Vector2D position, Vector2D direction)
+    Ray(Vector2D position, Vector2D endPosition)
     {
         m_position = position;
-        m_direction = direction;
+        m_direction = Vector2D(1, 0);//(endPosition - position).Normalized();
 
         DebugManager::Register(this);
     }

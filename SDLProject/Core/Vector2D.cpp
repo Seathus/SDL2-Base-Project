@@ -119,21 +119,15 @@ Vector2D Vector2D::operator*(float x) const
 }
 
 
-Vector2D& Vector2D::Zero()
+Vector2D Vector2D::Zero()
 {
-	this->x = 0;
-	this->y = 0;
-
-	return *this;
+	return {0,0};
 }
 
-Vector2D& Vector2D::Normalized()
+Vector2D Vector2D::Normalized()
 {
 	auto mag = Magnitude();
-	this->x = this->x / mag;
-	this->y = this->y / mag;
-
-	return *this;
+	return {this->x / mag, this->y / mag};
 }
 
 const float& Vector2D::Magnitude()
