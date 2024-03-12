@@ -3,7 +3,7 @@
 #include "Ray.h"
 #include "SDL.h"
 
-#include "SphereColliderComponent.h"
+#include "CircleColliderComponent.h"
 #include "BoxColliderComponent.h"
 
 class ColliderComponent;

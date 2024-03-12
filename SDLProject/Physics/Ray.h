@@ -3,9 +3,9 @@
 
 #include "../Core/Vector2D.h"
 #include "../Core/GameClient.h"
-#include "../Core/Debug/DebugManager.h"
+#include "../Core/Debug/Debug.h"
 
-class Ray : public IDebuggable
+class Ray
 {
 public:
 
@@ -16,17 +16,5 @@ public:
     {
         m_position = position;
         m_direction = (endPosition - position).Normalized();
-
-        DebugManager::Register(this);
-    }
-
-    void RenderDebug() const override
-    {
-        SDL_SetRenderDrawColor(GameClient::Renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-        SDL_RenderDrawLine(GameClient::Renderer,
-            m_position.x,
-            m_position.y,
-            m_direction.x * 10.0f,
-            m_direction.y * 10.0f);
     }
 };

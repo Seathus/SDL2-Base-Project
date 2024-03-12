@@ -2,9 +2,10 @@
 #include "../Graphics/TextureManager.h"
 #include "../Graphics/GameMap.h"
 #include "Components.h"
+#include "RGBColor.h"
 #include "Vector2D.h"
 #include "../Physics/Collision.h"
-#include "Debug/DebugManager.h"
+#include "Debug/Debug.h"
 
 GameMap* Map;
 
@@ -17,6 +18,9 @@ Manager manager;
 auto& player(manager.AddEntity());
 auto& wall(manager.AddEntity());
 auto& ball(manager.AddEntity());
+
+Vector2D lineEndLocation;
+Vector2D lineStartLocation;
 
 enum GroupLabels : std::size_t 
 {
@@ -86,7 +90,7 @@ void GameClient::Init(const char* title, int windowXPos, int windowYPos, int win
 	wall.AddGroup(Group_Map);*/
 
 	ball.AddComponent<TransformComponent>(80.0f,80.0f);
-	ball.AddComponent<SphereColliderComponent>("Sphere-collider", 35.0f);
+	ball.AddComponent<CircleColliderComponent>("Sphere-collider", 35.0f);
 	ball.AddGroup(Group_Enemies);
 
 	
@@ -102,8 +106,13 @@ void GameClient::HandleEvents()
 		case SDL_QUIT:
 			m_isRunning = false;
 			break;
+		case SDL_MOUSEBUTTONDOWN:
+			lineEndLocation = Vector2D(Event.button.x, Event.button.y);
+			break;
 	}
 }
+
+bool hitCircle = false;
 
 void GameClient::Update()
 {
@@ -111,11 +120,9 @@ void GameClient::Update()
 	manager.Update();
 
 	HitInfo hitInfo;
-	if (Collision::Raycast(Vector2D(0,0), Vector2D(20,20), hitInfo))
-	{
-		//change color of ray?
-		//render debug box?
-	}
+	lineStartLocation = Vector2D(0,0);
+	
+	hitCircle = Collision::Raycast(lineStartLocation, lineEndLocation, hitInfo);
 }
 
 auto& tiles(manager.GetGroup(Group_Map));
@@ -142,11 +149,17 @@ void GameClient::Render()
 		e->Draw();
 	}
 
-	DebugManager::Render();
-
+	auto debugColor = RGBColor(255, 0, 0);
+	
+	if (hitCircle)
+	{
+		debugColor = RGBColor(0, 255, 0);
+	}
+	
+	Debug::RenderRay(Vector2D(0,0), lineEndLocation, debugColor);
+	Debug::RenderCircle(Vector2D(350, 350), 35, RGBColor(255, 0, 0));
+	
 	SDL_SetRenderDrawColor(Renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-	SDL_RenderDrawLine(Renderer, 5, 5, 100, 120);
-
 	SDL_RenderPresent(Renderer);
 }
 
