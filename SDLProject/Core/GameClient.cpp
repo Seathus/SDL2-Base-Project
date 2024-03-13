@@ -5,7 +5,7 @@
 #include "RGBColor.h"
 #include "Vector2D.h"
 #include "../Physics/Collision.h"
-#include "Debug/Debug.h"
+#include "Debugg/Debug.h"
 
 GameMap* Map;
 

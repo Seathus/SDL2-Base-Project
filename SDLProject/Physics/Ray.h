@@ -3,7 +3,7 @@
 
 #include "../Core/Vector2D.h"
 #include "../Core/GameClient.h"
-#include "../Core/Debug/Debug.h"
+#include "../Core/Debugg/Debug.h"
 
 class Ray
 {

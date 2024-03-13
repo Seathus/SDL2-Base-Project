@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "ColliderComponent.h"
 #include "Circle.h"
-#include "../Core/Debug/Debug.h"
+#include "../Core/Debugg/Debug.h"
 
 class CircleColliderComponent : public ColliderComponent
 {
