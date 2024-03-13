@@ -19,8 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Debug\DebugManager.cpp" />
-    <ClCompile Include="Core\Debug\IDebuggable.cpp" />
+    <ClCompile Include="Core\Debug\Debug.cpp" />
     <ClCompile Include="Core\ECS.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -317,6 +316,7 @@
       <AdditionalIncludeDirectories>C:\C++ Development\SDL2_image-2.0.1\include;C:\C++ Development\SDL2\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Core\RGBColor.cpp" />
     <ClCompile Include="Core\Vector2D.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -691,16 +691,16 @@
       <AdditionalIncludeDirectories>C:\C++ Development\SDL2_image-2.0.1\include;C:\C++ Development\SDL2\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="Physics\Sphere.cpp" />
-    <ClCompile Include="Physics\SphereColliderComponent.cpp" />
+    <ClCompile Include="Physics\Circle.cpp" />
+    <ClCompile Include="Physics\CircleColliderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Components.h" />
-    <ClInclude Include="Core\Debug\DebugManager.h" />
-    <ClInclude Include="Core\Debug\IDebuggable.h" />
+    <ClInclude Include="Core\Debug\Debug.h" />
     <ClInclude Include="Core\ECS.h" />
     <ClInclude Include="Core\GameClient.h" />
     <ClInclude Include="Core\GameObject.h" />
+    <ClInclude Include="Core\RGBColor.h" />
     <ClInclude Include="Core\TransformComponent.h" />
     <ClInclude Include="Core\Vector2D.h" />
     <ClInclude Include="Graphics\Animation.h" />
@@ -716,8 +716,8 @@
     <ClInclude Include="Physics\HitInfo.h" />
     <ClInclude Include="Physics\ICollider.h" />
     <ClInclude Include="Physics\Ray.h" />
-    <ClInclude Include="Physics\Sphere.h" />
-    <ClInclude Include="Physics\SphereColliderComponent.h" />
+    <ClInclude Include="Physics\Circle.h" />
+    <ClInclude Include="Physics\CircleColliderComponent.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
